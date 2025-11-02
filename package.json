@@ -12,6 +12,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
+  "homepage": "https://Thestar3777.github.io/FormulaKentucky",
   "dependencies": {
     "react": "^19.1.1",
     "react-dom": "^19.1.1"
