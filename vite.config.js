@@ -4,9 +4,16 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: "/React_Vite_CICD/",
+  base: "/FormulaKentucky/",
   server: {
     open: true,
     port: 3001,
+  },
+  build: {
+    rollupOptions: {
+      input: {
+        main: './index.html',
+      }
+    }
   }
 })

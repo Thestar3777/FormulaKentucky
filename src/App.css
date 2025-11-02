@@ -1,42 +1,986 @@
-#root {
-  max-width: 1280px;
+/* ===================================
+   GLOBAL RESET & BASE STYLES
+   =================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', 'Open Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+.app {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* ===================================
+   UK BRAND COLORS - OFFICIAL GUIDELINES
+   =================================== */
+:root {
+  --uk-blue: #0033A0;
+  --uk-white: #FFFFFF;
+  --uk-light-gray: #F5F6FA;
+  --uk-accent-blue: #0055D4;
+  --uk-hover-blue: #A3C6FF;
+  --uk-dark-overlay: rgba(0, 51, 160, 0.9);
+}
+
+/* ===================================
+   NAVIGATION BAR
+   =================================== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  /*background: rgba(0, 51, 160, 0.9);*/
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 1000;
+  animation: slideDown 0.6s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.nav-container {
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 2rem;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.uk-logo {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+}
+
+.nav-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.nav-left .nav-logo h2 {
+  font-family: 'Montserrat', 'Gotham Bold', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--uk-white);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.nav-left .college-name {
+  font-family: 'Roboto', 'Gotham Book', sans-serif;
+  font-size: 11px;
+  color: var(--uk-light-gray);
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 35px;
+  align-items: center;
+}
+
+.nav-links li a {
+  font-family: 'Montserrat', 'Gotham Bold', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--uk-white);
+  text-decoration: none;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  position: relative;
+  transition: color 0.3s ease;
+  padding-bottom: 5px;
+}
+
+.nav-links li a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--uk-accent-blue);
+  transition: width 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: var(--uk-accent-blue);
+}
+
+.nav-links li a:hover::after {
+  width: 100%;
+}
+
+.nav-links li a.active {
+  border-bottom: 2px solid var(--uk-white);
+}
+
+/* Hamburger Menu (Hidden by default) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.hamburger span {
+  width: 28px;
+  height: 3px;
+  background-color: var(--uk-white);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* ===================================
+   HERO SECTION
+   =================================== */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  background-image: linear-gradient(
+    rgba(0, 0, 30, 0.45),
+    rgba(0, 0, 50, 0.75)
+  ), url('/src/assets/carphoto.png');
+  background-size: cover;
+  background-position: center left;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 30, 0.75) 0%,
+    rgba(0, 0, 50, 0.45) 50%,
+    rgba(0, 0, 50, 0.65) 100%
+  );
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1400px;
+  width: 100%;
+  padding: 0 80px;
+  display: flex;
+  justify-content: flex-end;
+  animation: fadeInRight 1s ease-out 0.3s both;
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.hero-text {
+  max-width: 650px;
+  text-align: right;
+}
+
+.hero-title {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.hero-line1 {
+  font-family: 'Montserrat', 'Gotham Bold', sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--uk-white);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.hero-line2 {
+  font-family: 'Montserrat', 'Gotham Bold', sans-serif;
+  font-size: 72px;
+  font-weight: 800;
+  color: var(--uk-white);
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  line-height: 1;
+  text-shadow: 0 2px 8px rgba(0, 51, 160, 0.5);
+}
+
+.hero-line3 {
+  font-family: 'Montserrat', 'Gotham Bold', sans-serif;
+  font-size: 52px;
+  font-weight: 700;
+  color: var(--uk-white);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.hero-subtitle {
+  font-family: 'Roboto', 'Gotham Book', sans-serif;
+  font-size: 18px;
+  color: var(--uk-white);
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  margin-bottom: 40px;
+  line-height: 1.5;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: flex-end;
+}
+
+/* Primary Button */
+.btn-primary {
+  font-family: 'Montserrat', 'Gotham Bold', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--uk-white);
+  background: var(--uk-blue);
+  border: 2px solid var(--uk-blue);
+  border-radius: 8px;
+  padding: 16px 32px;
+  cursor: pointer;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  animation: scaleUp 0.6s ease-out 0.8s both;
+}
+
+@keyframes scaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.btn-primary:hover {
+  background: var(--uk-accent-blue);
+  border-color: var(--uk-accent-blue);
+  box-shadow: 0 4px 16px rgba(0, 85, 212, 0.4);
+  transform: translateY(-2px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Secondary Button */
+.btn-secondary {
+  font-family: 'Montserrat', 'Gotham Bold', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--uk-white);
+  background: transparent;
+  border: 2px solid var(--uk-white);
+  border-radius: 8px;
+  padding: 14px 30px;
+  cursor: pointer;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  animation: scaleUp 0.6s ease-out 0.9s both;
+}
+
+.btn-secondary:hover {
+  background: var(--uk-white);
+  color: var(--uk-blue);
+  border-color: var(--uk-white);
+  transform: translateY(-2px);
+}
+
+.btn-secondary:active {
+  transform: translateY(0);
+}
+
+/* ===================================
+   RESPONSIVE DESIGN
+   =================================== */
+
+/* Tablet (1024px and below) */
+@media (max-width: 1024px) {
+  .nav-container {
+    padding: 0 30px;
+  }
+
+  .nav-links {
+    gap: 25px;
+  }
+
+  .nav-links li a {
+    font-size: 13px;
+  }
+
+  .hero-content {
+    padding: 0 50px;
+  }
+
+  .hero-line1 {
+    font-size: 38px;
+  }
+
+  .hero-line2 {
+    font-size: 58px;
+  }
+
+  .hero-line3 {
+    font-size: 42px;
+  }
+
+  .hero-subtitle {
+    font-size: 16px;
+  }
+
+  .btn-primary, .btn-secondary {
+    font-size: 16px;
+    padding: 14px 28px;
+  }
+}
+
+/* Mobile (768px and below) */
+@media (max-width: 768px) {
+  .navbar {
+    height: 70px;
+  }
+
+  .nav-container {
+    padding: 0 20px;
+  }
+
+  .nav-left .nav-logo h2 {
+    font-size: 14px;
+  }
+
+  .nav-left .college-name {
+    font-size: 9px;
+  }
+
+  /* Hide desktop nav links, show hamburger */
+  .nav-links {
+    position: fixed;
+    top: 70px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 70px);
+    background: var(--uk-dark-overlay);
+    backdrop-filter: blur(12px);
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 40px 20px;
+    gap: 30px;
+    transition: left 0.4s ease;
+  }
+
+  .nav-links.active {
+    left: 0;
+  }
+
+  .nav-links li a {
+    font-size: 18px;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  /* Hero adjustments */
+  .hero {
+    background-position: center center;
+  }
+
+  .hero-content {
+    padding: 0 25px;
+    justify-content: center;
+  }
+
+  .hero-text {
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .hero-title {
+    gap: 6px;
+    margin-bottom: 20px;
+  }
+
+  .hero-line1 {
+    font-size: 28px;
+    letter-spacing: 2px;
+  }
+
+  .hero-line2 {
+    font-size: 42px;
+    letter-spacing: 3px;
+  }
+
+  .hero-line3 {
+    font-size: 32px;
+    letter-spacing: 2px;
+  }
+
+  .hero-subtitle {
+    font-size: 14px;
+    margin-bottom: 30px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 15px;
+    align-items: stretch;
+    justify-content: center;
+  }
+
+  .btn-primary, .btn-secondary {
+    width: 100%;
+    font-size: 16px;
+    padding: 16px 24px;
+  }
+}
+
+/* Small Mobile (480px and below) */
+@media (max-width: 480px) {
+  .nav-left .nav-logo h2 {
+    font-size: 12px;
+  }
+
+  .nav-left .college-name {
+    font-size: 8px;
+  }
+
+  .hero-line1 {
+    font-size: 24px;
+  }
+
+  .hero-line2 {
+    font-size: 36px;
+  }
+
+  .hero-line3 {
+    font-size: 28px;
+  }
+
+  .hero-subtitle {
+    font-size: 13px;
+  }
+
+  .btn-primary, .btn-secondary {
+    font-size: 15px;
+    padding: 14px 20px;
+  }
+}
+
+/* ===================================
+   CONTACT / GET IN TOUCH SECTION
+   =================================== */
+.contact-section {
+  position: relative;
+  width: 100%;
+  min-height: 700px;
+  background: var(--uk-blue);
+  background-image: 
+    linear-gradient(
+      rgba(0, 0, 50, 0.85),
+      rgba(0, 0, 70, 0.9)
+    ),
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 35px,
+      rgba(255, 255, 255, 0.02) 35px,
+      rgba(255, 255, 255, 0.02) 70px
+    );
+  padding: 100px 0 120px;
+  overflow: hidden;
+}
+
+.contact-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at 30% 50%,
+    rgba(163, 198, 255, 0.05) 0%,
+    transparent 50%
+  );
+  pointer-events: none;
+}
+
+.contact-container {
+  position: relative;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 10%;
+  z-index: 2;
+}
+
+/* Heading */
+.contact-heading {
+  font-family: 'Montserrat', 'Gotham Bold', sans-serif;
+  font-size: 48px;
+  font-weight: 800;
+  color: var(--uk-white);
+  text-align: center;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.contact-accent-line {
+  width: 80px;
+  height: 4px;
+  background: var(--uk-white);
+  margin: 0 auto 60px;
+  border-radius: 2px;
+  animation: expandWidth 0.8s ease-out 0.3s both;
+}
+
+@keyframes expandWidth {
+  from {
+    width: 0;
+  }
+  to {
+    width: 80px;
+  }
+}
+
+/* Grid Layout */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr;
+  gap: 80px;
+  margin-bottom: 80px;
+  align-items: start;
+}
+
+/* Contact Information (Left Column) */
+.contact-info {
+  animation: slideInLeft 0.8s ease-out 0.4s both;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.contact-subtitle {
+  font-family: 'Montserrat', 'Gotham Bold', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--uk-white);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 30px;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-name {
+  font-family: 'Roboto', 'Gotham Book', sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--uk-white);
+  margin-bottom: 5px;
+}
+
+.contact-title {
+  font-family: 'Roboto', 'Gotham Book', sans-serif;
+  font-size: 16px;
+  color: var(--uk-light-gray);
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+.contact-email,
+.contact-phone {
+  font-family: 'Roboto', 'Gotham Book', sans-serif;
+  font-size: 18px;
+  color: var(--uk-white);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.contact-email {
+  border-bottom: 1px solid transparent;
+}
+
+.contact-email:hover {
+  color: var(--uk-hover-blue);
+  border-bottom: 1px solid var(--uk-hover-blue);
+}
+
+.contact-phone {
+  color: var(--uk-light-gray);
+}
+
+.contact-address {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.address-icon {
+  font-size: 20px;
+  color: var(--uk-light-blue);
+}
+
+.address-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.address-text p {
+  font-family: 'Roboto', 'Gotham Book', sans-serif;
+  font-size: 15px;
+  color: var(--uk-light-gray);
+  line-height: 1.5;
+}
+
+/* Divider */
+.contact-divider {
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(255, 255, 255, 0.4) 20%,
+    rgba(255, 255, 255, 0.4) 80%,
+    transparent 100%
+  );
+}
+
+/* Social Media (Right Column) */
+.social-info {
+  animation: slideInRight 0.8s ease-out 0.4s both;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.social-intro {
+  font-family: 'Roboto', 'Gotham Book', sans-serif;
+  font-size: 16px;
+  color: var(--uk-light-gray);
+  line-height: 1.5;
+  margin-bottom: 30px;
+}
+
+.social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-family: 'Roboto', 'Gotham Book', sans-serif;
+  font-size: 18px;
+  color: var(--uk-white);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  padding: 10px 0;
+  position: relative;
+}
+
+.social-link::after {
+  content: '';
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--uk-hover-blue);
+  transition: width 0.3s ease;
+}
+
+.social-link:hover {
+  color: var(--uk-hover-blue);
+  transform: translateX(5px);
+}
+
+.social-link:hover::after {
+  width: 100%;
+}
+
+.social-icon {
+  font-size: 24px;
+  min-width: 30px;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.social-text {
+  font-weight: 400;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+/* CTA Section */
+.contact-cta {
+  text-align: center;
+  padding-top: 60px;
+  border-top: 1px solid rgba(163, 198, 255, 0.2);
+  animation: fadeInUp 0.8s ease-out 0.6s both;
+}
+
+.cta-text {
+  font-family: 'Roboto', 'Gotham Book', sans-serif;
+  font-size: 20px;
+  color: var(--uk-white);
+  margin-bottom: 25px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.btn-cta {
+  font-family: 'Montserrat', 'Gotham Bold', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--uk-blue);
+  background: var(--uk-white);
+  border: 2px solid var(--uk-white);
+  border-radius: 8px;
+  padding: 16px 48px;
+  cursor: pointer;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.btn-cta:hover {
+  background: transparent;
+  color: var(--uk-white);
+  box-shadow: 0 0 20px rgba(163, 198, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+.btn-cta:active {
+  transform: translateY(0);
+}
+
+/* ===================================
+   CONTACT SECTION RESPONSIVE DESIGN
+   =================================== */
+
+/* Tablet (1024px and below) */
+@media (max-width: 1024px) {
+  .contact-section {
+    padding: 80px 0 100px;
+    min-height: 650px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .contact-container {
+    padding: 0 6%;
+  }
+
+  .contact-heading {
+    font-size: 40px;
+  }
+
+  .contact-grid {
+    gap: 60px;
+  }
+
+  .contact-subtitle {
+    font-size: 22px;
   }
 }
 
+/* Mobile (768px and below) */
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 60px 0 80px;
+    min-height: auto;
+  }
+
+  .contact-container {
+    padding: 0 5%;
+  }
+
+  .contact-heading {
+    font-size: 32px;
+    letter-spacing: 2px;
+  }
+
+  .contact-accent-line {
+    margin-bottom: 40px;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+    margin-bottom: 60px;
+  }
+
+  .contact-divider {
+    display: none;
+  }
+
+  .contact-info,
+  .social-info {
+    text-align: center;
+    animation: fadeInUp 0.8s ease-out 0.4s both;
+  }
+
+  .contact-subtitle {
+    font-size: 20px;
+    margin-bottom: 25px;
+  }
+
+  .contact-details {
+    align-items: center;
+  }
+
+  .contact-address {
+    justify-content: center;
+    text-align: left;
+  }
+
+  .social-links {
+    align-items: center;
+  }
+
+  .social-link {
+    justify-content: center;
+  }
+
+  .contact-cta {
+    padding-top: 50px;
+  }
+
+  .cta-text {
+    font-size: 18px;
+  }
+
+  .btn-cta {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+/* Small Mobile (480px and below) */
+@media (max-width: 480px) {
+  .contact-heading {
+    font-size: 26px;
+  }
+
+  .contact-name {
+    font-size: 20px;
+  }
+
+  .contact-email,
+  .contact-phone,
+  .social-text {
+    font-size: 16px;
+  }
+
+  .contact-subtitle {
+    font-size: 18px;
+  }
+
+  .social-intro {
+    font-size: 15px;
+  }
+}
+
+/* ===================================
+   PARALLAX & MOTION EFFECTS
+   =================================== */
 @media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  .hero {
+    background-attachment: fixed;
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+  
+  .contact-section {
+    background-attachment: fixed;
+  }
 }

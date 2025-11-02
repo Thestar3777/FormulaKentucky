@@ -1,0 +1,646 @@
+/* ===================================
+   NEWS PAGE - FEBRUARY 2025 NEWSLETTER
+   =================================== */
+
+/* Global Reset for News Page */
+.news-page {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #FFFFFF;
+  font-family: 'Roboto', 'Gotham Book', sans-serif;
+}
+
+/* ===================================
+   HEADER BANNER
+   =================================== */
+.news-header {
+  width: 100%;
+  background-color: #0033A0;
+  padding: 30px 0;
+}
+
+.news-header-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.news-header-title {
+  font-family: 'Montserrat', 'Gotham Bold', sans-serif;
+  font-size: 42px;
+  font-weight: 800;
+  color: #FFFFFF;
+  letter-spacing: 3px;
+  margin: 0;
+}
+
+.news-header-logo {
+  height: 60px;
+}
+
+.news-header-logo img {
+  height: 100%;
+  width: auto;
+  filter: brightness(0) invert(1);
+}
+
+/* ===================================
+   NAVIGATION BAR
+   =================================== */
+.news-nav {
+  width: 100%;
+  background-color: #FFFFFF;
+  border-bottom: 2px solid #E5E5E5;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.news-nav-links {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 100px;
+  display: flex;
+  list-style: none;
+  gap: 0;
+}
+
+.news-nav-links li {
+  flex: 0 0 auto;
+}
+
+.news-nav-links li a {
+  display: block;
+  padding: 20px 30px;
+  font-family: 'Montserrat', 'Gotham Bold', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #0033A0;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  border-bottom: 3px solid transparent;
+}
+
+.news-nav-links li a:hover {
+  background-color: #F5F6FA;
+  border-bottom-color: #A3C6FF;
+}
+
+.news-nav-links li a.active {
+  background-color: #0033A0;
+  color: #FFFFFF;
+  border-bottom-color: #0033A0;
+}
+
+/* ===================================
+   NEWSLETTER TITLE SECTION
+   =================================== */
+.newsletter-title-section {
+  background: linear-gradient(135deg, #0033A0 0%, #0047CC 100%);
+  padding: 80px 100px;
+  text-align: center;
+  animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.newsletter-title {
+  font-family: 'Montserrat', 'Gotham Bold', sans-serif;
+  font-size: 56px;
+  font-weight: 800;
+  color: #FFFFFF;
+  letter-spacing: 4px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.newsletter-subtitle {
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  color: #A3C6FF;
+  font-weight: 400;
+  letter-spacing: 1px;
+  margin-bottom: 30px;
+}
+
+.title-divider {
+  width: 120px;
+  height: 4px;
+  background: #FFFFFF;
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+/* ===================================
+   INTRODUCTION SECTION
+   =================================== */
+.newsletter-intro {
+  background-color: #F5F6FA;
+  padding: 60px 100px;
+}
+
+.intro-container {
+  max-width: 900px;
+  margin: 0 auto;
+  animation: slideUp 0.8s ease-out 0.2s both;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.greeting {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: #0033A0;
+  margin-bottom: 20px;
+}
+
+.intro-text {
+  font-family: 'Roboto', sans-serif;
+  font-size: 17px;
+  line-height: 1.8;
+  color: #333333;
+  text-align: justify;
+}
+
+/* ===================================
+   SUBSYSTEMS CONTAINER
+   =================================== */
+.subsystems-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 40px;
+}
+
+.subsystem-section {
+  margin-bottom: 80px;
+  animation: fadeInUp 0.8s ease-out;
+  animation-fill-mode: both;
+}
+
+.subsystem-section:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.subsystem-section:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.subsystem-section:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.subsystem-section:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.subsystem-section:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===================================
+   SUBSYSTEM CARDS
+   =================================== */
+.subsystem-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  background: #FFFFFF;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 51, 160, 0.08);
+  padding: 40px;
+  transition: all 0.4s ease;
+}
+
+.subsystem-card:hover {
+  box-shadow: 0 8px 32px rgba(0, 51, 160, 0.15);
+  transform: translateY(-4px);
+}
+
+/* Left Image Layout */
+.left-image .subsystem-card {
+  grid-template-areas: "image content";
+}
+
+.left-image .subsystem-image {
+  grid-area: image;
+}
+
+.left-image .subsystem-content {
+  grid-area: content;
+}
+
+/* Right Image Layout */
+.right-image .subsystem-card {
+  grid-template-areas: "content image";
+}
+
+.right-image .subsystem-image {
+  grid-area: image;
+}
+
+.right-image .subsystem-content {
+  grid-area: content;
+}
+
+/* ===================================
+   SUBSYSTEM CONTENT
+   =================================== */
+.subsystem-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.subsystem-heading {
+  font-family: 'Montserrat', 'Gotham Bold', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: #0033A0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  border-left: 5px solid #0033A0;
+  padding-left: 20px;
+}
+
+.subsystem-text {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+  color: #444444;
+  text-align: justify;
+}
+
+/* ===================================
+   SUBSYSTEM IMAGES (Placeholders)
+   =================================== */
+.subsystem-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.placeholder-image {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.placeholder-image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 51, 160, 0.7);
+  z-index: 1;
+}
+
+.placeholder-image span {
+  position: relative;
+  z-index: 2;
+}
+
+/* Different background colors for each subsystem */
+.chassis-bg {
+  background: linear-gradient(135deg, #0033A0 0%, #0047CC 100%);
+}
+
+.aero-bg {
+  background: linear-gradient(135deg, #0047CC 0%, #0066FF 100%);
+}
+
+.electronics-bg {
+  background: linear-gradient(135deg, #0033A0 0%, #0055DD 100%);
+}
+
+.powertrain-bg {
+  background: linear-gradient(135deg, #0047CC 0%, #003399 100%);
+}
+
+.suspension-bg {
+  background: linear-gradient(135deg, #0055DD 0%, #0033A0 100%);
+}
+
+/* ===================================
+   CLOSING SECTION
+   =================================== */
+.newsletter-closing {
+  background-color: #F5F6FA;
+  padding: 60px 100px;
+  text-align: center;
+}
+
+.closing-divider {
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(to right, transparent, #0033A0, transparent);
+  margin: 0 auto 40px;
+}
+
+.closing-message {
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  font-style: italic;
+  line-height: 1.8;
+  color: #333333;
+  max-width: 800px;
+  margin: 0 auto 20px;
+}
+
+.closing-signature {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #0033A0;
+  margin-top: 10px;
+}
+
+/* ===================================
+   FOOTER
+   =================================== */
+.news-footer {
+  background-color: #0033A0;
+  padding: 40px 0;
+  border-top: 4px solid #0047CC;
+}
+
+.footer-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.footer-logo {
+  height: 50px;
+}
+
+.footer-logo img {
+  height: 100%;
+  width: auto;
+  filter: brightness(0) invert(1);
+}
+
+.footer-social {
+  display: flex;
+  gap: 30px;
+}
+
+.footer-social a {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: #FFFFFF;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+  color: #A3C6FF;
+}
+
+.footer-contact a {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: #FFFFFF;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-contact a:hover {
+  color: #A3C6FF;
+}
+
+/* ===================================
+   RESPONSIVE DESIGN
+   =================================== */
+
+/* Tablet (1024px and below) */
+@media (max-width: 1024px) {
+  .news-header-container,
+  .news-nav-links,
+  .footer-container {
+    padding: 0 60px;
+  }
+
+  .newsletter-title-section,
+  .newsletter-intro,
+  .newsletter-closing {
+    padding: 60px 60px;
+  }
+
+  .news-header-title {
+    font-size: 36px;
+  }
+
+  .newsletter-title {
+    font-size: 48px;
+  }
+
+  .subsystems-container {
+    padding: 60px 30px;
+  }
+
+  .subsystem-card {
+    gap: 30px;
+    padding: 30px;
+  }
+
+  .subsystem-heading {
+    font-size: 28px;
+  }
+}
+
+/* Mobile (768px and below) */
+@media (max-width: 768px) {
+  .news-header-container {
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 40px;
+  }
+
+  .news-header-title {
+    font-size: 28px;
+    text-align: center;
+  }
+
+  .news-header-logo {
+    height: 50px;
+  }
+
+  .news-nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0 20px;
+  }
+
+  .news-nav-links li a {
+    padding: 15px 20px;
+    font-size: 12px;
+  }
+
+  .newsletter-title-section {
+    padding: 50px 40px;
+  }
+
+  .newsletter-title {
+    font-size: 36px;
+    letter-spacing: 2px;
+  }
+
+  .newsletter-subtitle {
+    font-size: 16px;
+  }
+
+  .newsletter-intro,
+  .newsletter-closing {
+    padding: 40px 40px;
+  }
+
+  .greeting {
+    font-size: 18px;
+  }
+
+  .intro-text {
+    font-size: 16px;
+  }
+
+  .subsystems-container {
+    padding: 40px 20px;
+  }
+
+  .subsystem-section {
+    margin-bottom: 50px;
+  }
+
+  .subsystem-card {
+    grid-template-columns: 1fr !important;
+    grid-template-areas: "image" "content" !important;
+    gap: 25px;
+    padding: 25px;
+  }
+
+  .subsystem-heading {
+    font-size: 24px;
+  }
+
+  .subsystem-text {
+    font-size: 15px;
+  }
+
+  .placeholder-image {
+    height: 250px;
+  }
+
+  .closing-message {
+    font-size: 18px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+    padding: 0 40px;
+  }
+
+  .footer-social {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+/* Small Mobile (480px and below) */
+@media (max-width: 480px) {
+  .news-header-container,
+  .newsletter-title-section,
+  .newsletter-intro,
+  .newsletter-closing,
+  .footer-container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .news-header-title {
+    font-size: 22px;
+  }
+
+  .newsletter-title {
+    font-size: 28px;
+  }
+
+  .newsletter-subtitle {
+    font-size: 14px;
+  }
+
+  .subsystem-heading {
+    font-size: 20px;
+  }
+
+  .subsystem-text {
+    font-size: 14px;
+  }
+
+  .placeholder-image {
+    height: 200px;
+    font-size: 18px;
+  }
+
+  .closing-message {
+    font-size: 16px;
+  }
+
+  .news-nav-links li a {
+    padding: 12px 15px;
+    font-size: 11px;
+  }
+}
