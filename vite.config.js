@@ -9,12 +9,4 @@ export default defineConfig({
     open: true,
     port: 3001,
   },
-  build: {
-    rollupOptions: {
-      input: {
-        main: './index.html',
-      }
-    }
-  }
 })
-
