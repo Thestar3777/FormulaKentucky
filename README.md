@@ -6,7 +6,7 @@ A React-based web application dedicated to Formula racing news and updates in Ke
 
 ## 🔗 Live Demo
 Check out the live version of the project here:
-👉 **[formulakentucky.netlify.app]((https://formulakentucky.netlify.app/))**
+👉 **[formulakentucky.netlify.app](([https://formulakentucky.netlify.app/)](https://formulakentucky.netlify.app/))**
 
 ## 🚀 Features
 
